@@ -1,12 +1,8 @@
 package com.pborge.advent.controller;
 
-import com.pborge.advent.service.AdventServiceFour;
-import com.pborge.advent.service.AdventServiceOne;
-import com.pborge.advent.service.AdventServiceThree;
-import com.pborge.advent.service.AdventServiceTwo;
+import com.pborge.advent.service.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.SwaggerDefinition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +20,8 @@ public class ResultController {
     private AdventServiceThree adventServiceThree;
     @Autowired
     private AdventServiceFour adventServiceFour;
+    @Autowired
+    private AdventServiceFive adventServiceFive;
 
     @RequestMapping(value = "/1/reportRepair", method = RequestMethod.GET)
     @ResponseBody
@@ -79,5 +77,19 @@ public class ResultController {
     @ApiOperation("Part 2")
     public Integer passportProcessingTwo() {
         return adventServiceFour.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "/5/binaryBoarding", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "You board your plane only to discover a new problem: you dropped your boarding pass! You aren't sure which seat is yours, and all of the flight attendants are busy with the flood of people that suddenly made it through passport control. You write a quick program to use your phone's camera to scan all of the nearby boarding passes (your puzzle input); perhaps you can find your seat through process of elimination.")
+    public Integer binaryBoarding() {
+        return adventServiceFive.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/5/binaryBoarding/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Integer binaryBoardingTwo() {
+        return adventServiceFive.getAdvent2Result();
     }
 }
