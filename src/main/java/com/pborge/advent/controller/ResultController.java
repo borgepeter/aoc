@@ -22,6 +22,8 @@ public class ResultController {
     private AdventServiceFour adventServiceFour;
     @Autowired
     private AdventServiceFive adventServiceFive;
+    @Autowired
+    private AdventServiceSix adventServiceSix;
 
     @RequestMapping(value = "/1/reportRepair", method = RequestMethod.GET)
     @ResponseBody
@@ -91,5 +93,19 @@ public class ResultController {
     @ApiOperation("Part 2")
     public Integer binaryBoardingTwo() {
         return adventServiceFive.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "/6/customCustoms", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "As your flight approaches the regional airport where you'll switch to a much larger plane, customs declaration forms are distributed to the passengers. The form asks a series of 26 yes-or-no questions marked a through z. All you need to do is identify the questions for which anyone in your group answers \"yes\". Since your group is just you, this doesn't take very long. However, the person sitting next to you seems to be experiencing a language barrier and asks if you can help. For each of the people in their group, you write down the questions for which they answer \"yes\", one per line. Another group asks for your help, then another...")
+    public Integer customCustoms() {
+        return adventServiceSix.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/6/customCustoms/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Integer customCustomsTwo() {
+        return adventServiceSix.getAdvent2Result();
     }
 }

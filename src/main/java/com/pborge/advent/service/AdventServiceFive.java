@@ -31,7 +31,7 @@ public class AdventServiceFive {
         List<String> seatData = Arrays.asList(webRepository.getData(5).split("\n"));
         Map<Integer, Seat> seats = seatData.stream().map(this::getSeat).collect(Collectors.toMap(Seat::getId, Function.identity()));
 
-        for (int i = 0; i < 1024; i++) {
+         for (int i = 0; i < 1024; i++) {
             if (seats.containsKey(i-1) && !seats.containsKey(i) && seats.containsKey(i+1))
                 return i;
         }
