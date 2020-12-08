@@ -24,6 +24,10 @@ public class ResultController {
     private AdventServiceFive adventServiceFive;
     @Autowired
     private AdventServiceSix adventServiceSix;
+    @Autowired
+    private AdventServiceSeven adventServiceSeven;
+    @Autowired
+    private AdventServiceEight adventServiceEight;
 
     @RequestMapping(value = "/1/reportRepair", method = RequestMethod.GET)
     @ResponseBody
@@ -107,5 +111,33 @@ public class ResultController {
     @ApiOperation("Part 2")
     public Integer customCustomsTwo() {
         return adventServiceSix.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "/7/handyHaversacks", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "You land at the regional airport in time for your next flight. In fact, it looks like you'll even have time to grab some food: all flights are currently delayed due to issues in luggage processing. Due to recent aviation regulations, many rules (your puzzle input) are being enforced about bags and their contents; bags must be color-coded and must contain specific quantities of other color-coded bags. Apparently, nobody responsible for these regulations considered how long they would take to enforce!")
+    public Integer handyHaversacks() {
+        return adventServiceSeven.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/7/handyHaversacks/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Integer handyHaversacksTwo() {
+        return adventServiceSeven.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "/8/handheldHalting", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "Your flight to the major airline hub reaches cruising altitude without incident. While you consider checking the in-flight menu for one of those drinks that come with a little umbrella, you are interrupted by the kid sitting next to you. Their handheld game console won't turn on! They ask if you can take a look...")
+    public Integer handheldHalting() {
+        return adventServiceEight.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/8/handheldHalting/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Integer handheldHaltingTwo() {
+        return adventServiceEight.getAdvent2Result();
     }
 }
