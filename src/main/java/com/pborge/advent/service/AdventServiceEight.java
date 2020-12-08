@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 @Service
 public class AdventServiceEight {
@@ -43,9 +45,9 @@ public class AdventServiceEight {
     private boolean executeInstructions(String[] instructions, int[] accumulator) {
         int pointer = 0;
         try {
-            HashMap<Integer, Integer> executedSteps = new HashMap<>();
-            while (!executedSteps.containsKey(pointer) && pointer >= 0) {
-                executedSteps.put(pointer, null);
+            Set<Integer> executedSteps = new HashSet<>();
+            while (!executedSteps.contains(pointer) && pointer >= 0) {
+                executedSteps.add(pointer);
                 String task = instructions[pointer].split(" ")[0];
                 int value = Integer.parseInt(instructions[pointer].split(" ")[1]);
                 if ("jmp".equalsIgnoreCase(task))
