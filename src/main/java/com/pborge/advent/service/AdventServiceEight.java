@@ -46,7 +46,8 @@ public class AdventServiceEight {
         int pointer = 0;
         try {
             Set<Integer> executedSteps = new HashSet<>();
-            while (!executedSteps.contains(pointer) && pointer >= 0) {
+            while (!executedSteps.contains
+                    (pointer) && pointer >= 0) {
                 executedSteps.add(pointer);
                 String task = instructions[pointer].split(" ")[0];
                 int value = Integer.parseInt(instructions[pointer].split(" ")[1]);
