@@ -30,6 +30,8 @@ public class ResultController {
     private AdventServiceEight adventServiceEight;
     @Autowired
     private AdventServiceNine adventServiceNine;
+    @Autowired
+    private AdventServiceTen adventServiceTen;
 
     @RequestMapping(value = "/1/reportRepair", method = RequestMethod.GET)
     @ResponseBody
@@ -155,5 +157,19 @@ public class ResultController {
     @ApiOperation("Part 2")
     public Long encodingErrorTwo() {
         return adventServiceNine.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "10/adapterArray", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "With your neighbor happily enjoying their video game, you turn your attention to an open data port on the little screen in the seat in front of you. Though the port is non-standard, you manage to connect it to your computer through the clever use of several paperclips. Upon connection, the port outputs a series of numbers. The data appears to be encrypted with the eXchange-Masking Addition System (XMAS) which, conveniently for you, is an old cypher with an important weakness...")
+    public Integer adapterArray() {
+        return adventServiceTen.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/10/adapterArray/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Long adapterArrayTwo() {
+        return adventServiceTen.getAdvent2Result();
     }
 }
