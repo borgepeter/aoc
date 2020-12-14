@@ -32,6 +32,8 @@ public class ResultController {
     private AdventServiceNine adventServiceNine;
     @Autowired
     private AdventServiceTen adventServiceTen;
+    @Autowired
+    private AdventServiceEleven adventServiceEleven;
 
     @RequestMapping(value = "/1/reportRepair", method = RequestMethod.GET)
     @ResponseBody
@@ -171,5 +173,19 @@ public class ResultController {
     @ApiOperation("Part 2")
     public Long adapterArrayTwo() {
         return adventServiceTen.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "11/seatingSystem", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "Your plane lands with plenty of time to spare. The final leg of your journey is a ferry that goes directly to the tropical island where you can finally start your vacation. As you reach the waiting area to board the ferry, you realize you're so early, nobody else has even arrived yet! By modeling the process people use to choose (or abandon) their seat in the waiting area, you're pretty sure you can predict the best place to sit. You make a quick map of the seat layout...")
+    public Integer seatingSystem() {
+        return adventServiceEleven.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/11/seatingSystem/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Integer seatingSystemTwo() {
+        return adventServiceEleven.getAdvent2Result();
     }
 }

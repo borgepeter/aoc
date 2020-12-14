@@ -11,8 +11,7 @@ public class WebRepository {
     private final String INPUT = "/input";
     private final String COOKIE = "Cookie";
     @Value("${sessionId}")
-    private String sessionId
-            ;
+    private String sessionId;
 
     public String getData(int adventDay) {
         String url = WEB_URL + adventDay + INPUT;
