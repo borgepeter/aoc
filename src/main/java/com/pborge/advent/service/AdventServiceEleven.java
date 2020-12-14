@@ -23,7 +23,6 @@ public class AdventServiceEleven {
             floor = step1(floor);
             Integer occupiedSeats = Cell.getOccupiedSeats(floor);
             Cell.printBoard(floor);
-            System.out.println(occupiedSeats + " occupied seats after " + (++counter) + " iterations");
 
             if (occupiedSeats == seatsLastTime)
                 return occupiedSeats;
@@ -40,8 +39,7 @@ public class AdventServiceEleven {
         while (true) {
             floor = step2(floor);
             Integer occupiedSeats = Cell.getOccupiedSeats(floor);
-            //Cell.printBoard(floor);
-            System.out.println(occupiedSeats + " occupied seats after " + (++counter) + " iterations");
+            Cell.printBoard(floor);
 
             if (occupiedSeats == seatsLastTime)
                 return occupiedSeats;
@@ -50,6 +48,7 @@ public class AdventServiceEleven {
                 throw new RuntimeException("Infinite Loop Suspected");
 
             seatsLastTime = occupiedSeats;
+            counter++;
         }
     }
 

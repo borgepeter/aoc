@@ -78,13 +78,10 @@ public class Cell {
                 try {
                     if (floor[i][j].isOccupied()) {
                         occupiedNeighbors++;
-                        //System.out.println("["+row+", "+column+"] has an occupied neighbor at ["+i+", "+j+"]");
                     }
                 } catch (IndexOutOfBoundsException e) {}
             }
         }
-//        if (occupiedNeighbors > 0)
-//            System.out.println("["+row+", "+column+"] has "+occupiedNeighbors+" occupied neighbors");
         return occupiedNeighbors;
     }
 
