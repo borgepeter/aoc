@@ -34,6 +34,12 @@ public class ResultController {
     private AdventServiceTen adventServiceTen;
     @Autowired
     private AdventServiceEleven adventServiceEleven;
+    @Autowired
+    private AdventServiceTwelve adventServiceTwelve;
+    @Autowired
+    private AdventServiceThirteen adventServiceThirteen;
+    @Autowired
+    private AdventServiceFourteen adventServiceFourteen;
 
     @RequestMapping(value = "/1/reportRepair", method = RequestMethod.GET)
     @ResponseBody
@@ -161,9 +167,9 @@ public class ResultController {
         return adventServiceNine.getAdvent2Result();
     }
 
-    @RequestMapping(value = "10/adapterArray", method = RequestMethod.GET)
+    @RequestMapping(value = "/10/adapterArray", method = RequestMethod.GET)
     @ResponseBody
-    @ApiOperation(value = "With your neighbor happily enjoying their video game, you turn your attention to an open data port on the little screen in the seat in front of you. Though the port is non-standard, you manage to connect it to your computer through the clever use of several paperclips. Upon connection, the port outputs a series of numbers. The data appears to be encrypted with the eXchange-Masking Addition System (XMAS) which, conveniently for you, is an old cypher with an important weakness...")
+    @ApiOperation(value = "Patched into the aircraft's data port, you discover weather forecasts of a massive tropical storm. Before you can figure out whether it will impact your vacation plans, however, your device suddenly turns off! Its battery is dead. You'll need to plug it in...")
     public Integer adapterArray() {
         return adventServiceTen.getAdvent1Result();
     }
@@ -175,7 +181,7 @@ public class ResultController {
         return adventServiceTen.getAdvent2Result();
     }
 
-    @RequestMapping(value = "11/seatingSystem", method = RequestMethod.GET)
+    @RequestMapping(value = "/11/seatingSystem", method = RequestMethod.GET)
     @ResponseBody
     @ApiOperation(value = "Your plane lands with plenty of time to spare. The final leg of your journey is a ferry that goes directly to the tropical island where you can finally start your vacation. As you reach the waiting area to board the ferry, you realize you're so early, nobody else has even arrived yet! By modeling the process people use to choose (or abandon) their seat in the waiting area, you're pretty sure you can predict the best place to sit. You make a quick map of the seat layout...")
     public Integer seatingSystem() {
@@ -187,5 +193,47 @@ public class ResultController {
     @ApiOperation("Part 2")
     public Integer seatingSystemTwo() {
         return adventServiceEleven.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "/12/rainRisk", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "Your ferry made decent progress toward the island, but the storm came in faster than anyone expected. The ferry needs to take evasive actions! Unfortunately, the ship's navigation computer seems to be malfunctioning; rather than giving a route directly to safety, it produced extremely circuitous instructions. When the captain uses the PA system to ask if anyone can help, you quickly volunteer...")
+    public Integer rainRisk() {
+        return adventServiceTwelve.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/12/rainRisk/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Integer rainRiskTwo() {
+        return adventServiceTwelve.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "/13/shuttleSearch", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "Your ferry can make it safely to a nearby port, but it won't get much further. When you call to book another ship, you discover that no ships embark from that port to your vacation island. You'll need to get from the port to the nearest airport. Fortunately, a shuttle bus service is available to bring you from the sea port to the airport!")
+    public Integer shuttleSearch() {
+        return adventServiceThirteen.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/13/shuttleSearch/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Integer shuttleSearchTwo() {
+        return adventServiceThirteen.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "/14/dockingData", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "As your ferry approaches the sea port, the captain asks for your help again. The computer system that runs this port isn't compatible with the docking program on the ferry, so the docking parameters aren't being correctly initialized in the docking program's memory. After a brief inspection, you discover that the sea port's computer system uses a strange bitmask system in its initialization program. Although you don't have the correct decoder chip handy, you can emulate it in software!")
+    public Integer dockingData() {
+        return adventServiceFourteen.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/14/dockingData/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Integer dockingDataTwo() {
+        return adventServiceFourteen.getAdvent2Result();
     }
 }
