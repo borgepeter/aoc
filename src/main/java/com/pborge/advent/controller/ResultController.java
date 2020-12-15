@@ -226,14 +226,14 @@ public class ResultController {
     @RequestMapping(value = "/14/dockingData", method = RequestMethod.GET)
     @ResponseBody
     @ApiOperation(value = "As your ferry approaches the sea port, the captain asks for your help again. The computer system that runs this port isn't compatible with the docking program on the ferry, so the docking parameters aren't being correctly initialized in the docking program's memory. After a brief inspection, you discover that the sea port's computer system uses a strange bitmask system in its initialization program. Although you don't have the correct decoder chip handy, you can emulate it in software!")
-    public Integer dockingData() {
+    public Long dockingData() {
         return adventServiceFourteen.getAdvent1Result();
     }
 
     @RequestMapping(value = "/14/dockingData/2", method = RequestMethod.GET)
     @ResponseBody
     @ApiOperation("Part 2")
-    public Integer dockingDataTwo() {
+    public Long dockingDataTwo() {
         return adventServiceFourteen.getAdvent2Result();
     }
 }
