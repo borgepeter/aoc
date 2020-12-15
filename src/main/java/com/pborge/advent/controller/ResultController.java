@@ -219,7 +219,7 @@ public class ResultController {
     @RequestMapping(value = "/13/shuttleSearch/2", method = RequestMethod.GET)
     @ResponseBody
     @ApiOperation("Part 2")
-    public Integer shuttleSearchTwo() {
+    public Long shuttleSearchTwo() {
         return adventServiceThirteen.getAdvent2Result();
     }
 

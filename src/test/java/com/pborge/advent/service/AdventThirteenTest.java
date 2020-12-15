@@ -32,6 +32,37 @@ public class AdventThirteenTest {
 
     @Test
     void adventTwo_testInput_testOutput() {
+        when(webRepository.getData(13)).thenReturn(TEST_INPUT);
+        assertEquals(1068781, testService.getAdvent2Result());
+    }
 
+    @Test
+    void adventTwo_testInput2_testOutput() {
+        when(webRepository.getData(13)).thenReturn("\n17,x,13,19");
+        assertEquals(3417, testService.getAdvent2Result());
+    }
+
+    @Test
+    void adventTwo_testInput3_testOutput() {
+        when(webRepository.getData(13)).thenReturn("\n67,7,59,61");
+        assertEquals(754018, testService.getAdvent2Result());
+    }
+
+    @Test
+    void adventTwo_testInput4_testOutput() {
+        when(webRepository.getData(13)).thenReturn("\n67,x,7,59,61");
+        assertEquals(779210, testService.getAdvent2Result());
+    }
+
+    @Test
+    void adventTwo_testInput5_testOutput() {
+        when(webRepository.getData(13)).thenReturn("\n67,7,x,59,61");
+        assertEquals(1261476, testService.getAdvent2Result());
+    }
+
+    @Test
+    void adventTwo_testInput6_testOutput() {
+        when(webRepository.getData(13)).thenReturn("\n1789,37,47,1889");
+        assertEquals(1202161486, testService.getAdvent2Result());
     }
 }
