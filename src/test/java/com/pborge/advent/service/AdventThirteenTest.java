@@ -14,19 +14,20 @@ public class AdventThirteenTest {
     @Mock
     private WebRepository webRepository;
 
-    private AdventServiceTen testService;
+    private AdventServiceThirteen testService;
 
-    private final String TEST_INPUT = "";
+    private final String TEST_INPUT = "939\n" +
+            "7,13,x,x,59,x,31,19";
 
     @BeforeEach
     void setup() {
-        testService = new AdventServiceTen(webRepository);
+        testService = new AdventServiceThirteen(webRepository);
     }
 
     @Test
     void adventOne_testInput_testOutput() {
-        when(webRepository.getData(12)).thenReturn(TEST_INPUT);
-        assertEquals(0, testService.getAdvent1Result());
+        when(webRepository.getData(13)).thenReturn(TEST_INPUT);
+        assertEquals(295, testService.getAdvent1Result());
     }
 
     @Test
