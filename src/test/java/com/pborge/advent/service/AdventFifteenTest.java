@@ -39,7 +39,7 @@ public class AdventFifteenTest {
     @Test
     void adventTwo_actualInput_realOutput() {
         when(webRepository.getData(15)).thenReturn(ACTUAL_INPUT);
-        assertEquals(0, testService.getAdvent2Result());
+        assertEquals(16671510, testService.getAdvent2Result());
     }
 
     @Test
