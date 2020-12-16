@@ -40,6 +40,8 @@ public class ResultController {
     private AdventServiceThirteen adventServiceThirteen;
     @Autowired
     private AdventServiceFourteen adventServiceFourteen;
+    @Autowired
+    private AdventServiceFifteen adventServiceFifteen;
 
     @RequestMapping(value = "/1/reportRepair", method = RequestMethod.GET)
     @ResponseBody
@@ -235,5 +237,19 @@ public class ResultController {
     @ApiOperation("Part 2")
     public Long dockingDataTwo() {
         return adventServiceFourteen.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "/15/rambunctiousRecitation", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "You catch the airport shuttle and try to book a new flight to your vacation island. Due to the storm, all direct flights have been cancelled, but a route is available to get around the storm. You take it. While you wait for your flight, you decide to check in with the Elves back at the North Pole. They're playing a memory game and are ever so excited to explain the rules!")
+    public Integer rambunctiousRecitation() {
+        return adventServiceFifteen.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/15/rambunctiousRecitation/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Integer rambunctiousRecitationTwo() {
+        return adventServiceFifteen.getAdvent2Result();
     }
 }
