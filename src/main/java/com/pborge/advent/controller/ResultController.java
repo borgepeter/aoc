@@ -265,7 +265,7 @@ public class ResultController {
     @RequestMapping(value = "/16/ticketTranslation/2", method = RequestMethod.GET)
     @ResponseBody
     @ApiOperation("Part 2")
-    public Integer ticketTranslationTwo() {
+    public Long ticketTranslationTwo() {
         return adventServiceSixteen.getAdvent2Result();
     }
 }
