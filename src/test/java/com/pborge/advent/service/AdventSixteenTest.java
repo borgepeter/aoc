@@ -43,6 +43,6 @@ public class AdventSixteenTest {
     @Test
     void adventTwo_testInput_testOutput() {
         when(webRepository.getData(16)).thenReturn(TEST_INPUT);
-        assertEquals(0, testService.getAdvent2Result());
+        assertEquals(1, testService.getAdvent2Result());
     }
 }

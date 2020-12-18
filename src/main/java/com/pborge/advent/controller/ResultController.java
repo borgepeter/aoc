@@ -44,6 +44,8 @@ public class ResultController {
     private AdventServiceFifteen adventServiceFifteen;
     @Autowired
     private AdventServiceSixteen adventServiceSixteen;
+    @Autowired
+    private AdventServiceSeventeen adventServiceSeventeen;
 
     @RequestMapping(value = "/1/reportRepair", method = RequestMethod.GET)
     @ResponseBody
@@ -267,5 +269,19 @@ public class ResultController {
     @ApiOperation("Part 2")
     public Long ticketTranslationTwo() {
         return adventServiceSixteen.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "/17/conwayCubes", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "As your flight slowly drifts through the sky, the Elves at the Mythical Information Bureau at the North Pole contact you. They'd like some help debugging a malfunctioning experimental energy source aboard one of their super-secret imaging satellites. The experimental energy source is based on cutting-edge technology: a set of Conway Cubes contained in a pocket dimension! When you hear it's having problems, you can't help but agree to take a look...")
+    public Integer conwayCubes() {
+        return adventServiceSeventeen.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/17/conwayCubes/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Integer conwayCubesTwo() {
+        return adventServiceSeventeen.getAdvent2Result();
     }
 }
