@@ -1,6 +1,7 @@
 package com.pborge.advent.service;
 
 import com.pborge.advent.models.Cell;
+import com.pborge.advent.models.Floor;
 import com.pborge.advent.repository.WebRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,31 +16,24 @@ public class AdventServiceEleven {
     }
 
     public Integer getAdvent1Result() {
-        Cell[][] floor = createFloor();
-        int seatsLastTime = -1;
-        int counter = 0;
-        Cell.printBoard(floor);
-        while (true) {
-            floor = step1(floor);
-            Integer occupiedSeats = Cell.getOccupiedSeats(floor);
-            Cell.printBoard(floor);
-
-            if (occupiedSeats == seatsLastTime)
-                return occupiedSeats;
-
-            seatsLastTime = occupiedSeats;
-        }
+        Floor floor = createFloor();
+        return runSimulation(floor, 0, 4, false);
     }
 
     public Integer getAdvent2Result() {
-        Cell[][] floor = createFloor();
+        Floor floor = createFloor();
+        return runSimulation(floor, 0, 5, true);
+    }
+
+    private int runSimulation(Floor floor, int minSpontaneousLife, int maxOvercrowdDeath, boolean skipEmptySeats) {
         int seatsLastTime = -1;
         int counter = 0;
-        Cell.printBoard(floor);
+
+        floor.print();
         while (true) {
-            floor = step2(floor);
-            Integer occupiedSeats = Cell.getOccupiedSeats(floor);
-            Cell.printBoard(floor);
+            floor = step(floor, minSpontaneousLife, maxOvercrowdDeath, skipEmptySeats);
+            Integer occupiedSeats = floor.getOccupiedSeats();
+            floor.print();
 
             if (occupiedSeats == seatsLastTime)
                 return occupiedSeats;
@@ -50,46 +44,31 @@ public class AdventServiceEleven {
             seatsLastTime = occupiedSeats;
             counter++;
         }
+
     }
 
-    private Cell[][] step1(Cell[][] floor) {
-        Cell[][] nextFloor = new Cell[floor.length][floor[0].length];
-        for (int i = 0; i < floor.length; i++) {
-            for (int j = 0; j < floor[i].length; j++) {
-                nextFloor[i][j] = new Cell(floor[i][j]);
-                int occupiedNeighbors = floor[i][j].countOccupiedNeighbors(floor);
-                if (!floor[i][j].isOccupied() && occupiedNeighbors == 0)
-                    nextFloor[i][j].toggleSeat();
-                if (floor[i][j].isOccupied() && occupiedNeighbors >= 4)
-                    nextFloor[i][j].toggleSeat();
+    private Floor step(Floor floor, int minSpontaneousLife, int maxOvercrowdDeath, boolean skipEmptySeats) {
+        Floor nextFloor = new Floor(floor.getWidth(), floor.getHeight());
+        for (int i = 0; i < floor.getWidth(); i++) {
+            for (int j = 0; j < floor.getHeight(); j++) {
+                nextFloor.add(new Cell(floor.get(i, j)), i, j);
+                int occupiedNeighbors = floor.countOccupiedNeighbors(i, j, skipEmptySeats);
+                if (!floor.get(i, j).isOccupied() && occupiedNeighbors == minSpontaneousLife)
+                    nextFloor.get(i, j).toggleSeat();
+                if (floor.get(i, j).isOccupied() && occupiedNeighbors >= maxOvercrowdDeath)
+                    nextFloor.get(i, j).toggleSeat();
             }
         }
 
         return nextFloor;
     }
 
-    private Cell[][] step2(Cell[][] floor) {
-        Cell[][] nextFloor = new Cell[floor.length][floor[0].length];
-        for (int i = 0; i < floor.length; i++) {
-            for (int j = 0; j < floor[i].length; j++) {
-                nextFloor[i][j] = new Cell(floor[i][j]);
-                int occupiedNeighbors = floor[i][j].countOccupiedNeighbors2(floor);
-                if (!floor[i][j].isOccupied() && occupiedNeighbors == 0)
-                    nextFloor[i][j].toggleSeat();
-                if (floor[i][j].isOccupied() && occupiedNeighbors >= 5)
-                    nextFloor[i][j].toggleSeat();
-            }
-        }
-
-        return nextFloor;
-    }
-
-    private Cell[][] createFloor() {
+    private Floor createFloor() {
         String[] data = webRepository.getData(11).split("\n");
-        Cell[][] floor = new Cell[data.length][data[0].length()];
-        for (int i = 0; i < floor.length; i++) {
-            for (int j = 0; j < floor[i].length; j++) {
-                floor[i][j] = new Cell(data[i].split("")[j], i, j);
+        Floor floor = new Floor(data.length, data[0].length());
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[i].length(); j++) {
+                floor.add(new Cell(data[i].split("")[j]), i, j);
             }
         }
         return floor;
