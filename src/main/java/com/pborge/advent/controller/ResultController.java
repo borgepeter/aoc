@@ -290,14 +290,14 @@ public class ResultController {
     @RequestMapping(value = "/18/operationOrder", method = RequestMethod.GET)
     @ResponseBody
     @ApiOperation(value = "As you look out the window and notice a heavily-forested continent slowly appear over the horizon, you are interrupted by the child sitting next to you. They're curious if you could help them with their math homework...")
-    public Integer operationOrder() {
+    public Long operationOrder() {
         return adventServiceEighteen.getAdvent1Result();
     }
 
     @RequestMapping(value = "/18/operationOrder/2", method = RequestMethod.GET)
     @ResponseBody
     @ApiOperation("Part 2")
-    public Integer operationOrderTwo() {
+    public Long operationOrderTwo() {
         return adventServiceEighteen.getAdvent2Result();
     }
 }

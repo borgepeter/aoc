@@ -66,6 +66,37 @@ public class AdventEighteenTest {
 
     @Test
     void adventTwo_testInput_testOutput() {
+        when(webRepository.getData(18)).thenReturn(TEST_INPUT_1);
+        assertEquals(231, testService.getAdvent2Result());
+    }
 
+    @Test
+    void adventTwo_testInput2_testOutput() {
+        when(webRepository.getData(18)).thenReturn(TEST_INPUT_2);
+        assertEquals(51, testService.getAdvent2Result());
+    }
+
+    @Test
+    void adventTwo_testInput3_testOutput() {
+        when(webRepository.getData(18)).thenReturn(TEST_INPUT_3);
+        assertEquals(46, testService.getAdvent2Result());
+    }
+
+    @Test
+    void adventTwo_testInput4_testOutput() {
+        when(webRepository.getData(18)).thenReturn(TEST_INPUT_4);
+        assertEquals(1445, testService.getAdvent2Result());
+    }
+
+    @Test
+    void adventTwo_testInput5_testOutput() {
+        when(webRepository.getData(18)).thenReturn(TEST_INPUT_5);
+        assertEquals(669060, testService.getAdvent2Result());
+    }
+
+    @Test
+    void adventTwo_testInput6_testOutput() {
+        when(webRepository.getData(18)).thenReturn(TEST_INPUT_6);
+        assertEquals(23340, testService.getAdvent2Result());
     }
 }
