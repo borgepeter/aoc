@@ -48,6 +48,8 @@ public class ResultController {
     private AdventServiceSeventeen adventServiceSeventeen;
     @Autowired
     private AdventServiceEighteen adventServiceEighteen;
+    @Autowired
+    private AdventServiceNineteen adventServiceNineteen;
 
     @RequestMapping(value = "/1/reportRepair", method = RequestMethod.GET)
     @ResponseBody
@@ -299,5 +301,19 @@ public class ResultController {
     @ApiOperation("Part 2")
     public Long operationOrderTwo() {
         return adventServiceEighteen.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "/19/monsterMessages", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "You land in an airport surrounded by dense forest. As you walk to your high-speed train, the Elves at the Mythical Information Bureau contact you again. They think their satellite has collected an image of a sea monster! Unfortunately, the connection to the satellite is having problems, and many of the messages sent back from the satellite have been corrupted....")
+    public Integer monsterMessages() {
+        return adventServiceNineteen.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/19/monsterMessages/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Integer monsterMessagesTwo() {
+        return adventServiceNineteen.getAdvent2Result();
     }
 }
