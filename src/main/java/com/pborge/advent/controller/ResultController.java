@@ -46,6 +46,8 @@ public class ResultController {
     private AdventServiceSixteen adventServiceSixteen;
     @Autowired
     private AdventServiceSeventeen adventServiceSeventeen;
+    @Autowired
+    private AdventServiceEighteen adventServiceEighteen;
 
     @RequestMapping(value = "/1/reportRepair", method = RequestMethod.GET)
     @ResponseBody
@@ -283,5 +285,19 @@ public class ResultController {
     @ApiOperation("Part 2")
     public Integer conwayCubesTwo() {
         return adventServiceSeventeen.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "/18/operationOrder", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "As you look out the window and notice a heavily-forested continent slowly appear over the horizon, you are interrupted by the child sitting next to you. They're curious if you could help them with their math homework...")
+    public Integer operationOrder() {
+        return adventServiceEighteen.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/18/operationOrder/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Integer operationOrderTwo() {
+        return adventServiceEighteen.getAdvent2Result();
     }
 }
