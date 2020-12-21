@@ -7,6 +7,14 @@ public class Cube {
         floors = new Floor[depth];
         for (int z = 0; z < depth; z++)
             floors[z] = new Floor(width, height);
+
+        for (int z = 0; z < floors.length; z++) {
+            for (int x = 0; x < floors[z].getWidth(); x++) {
+                for (int y = 0; y < floors[z].getHeight(); y++) {
+                    add(new Cell("L"), x, y, z);
+                }
+            }
+        }
     }
 
     public int getWidth() {
@@ -52,7 +60,7 @@ public class Cube {
     public void print() {
         for (int z = 0; z < floors.length; z++) {
             if (floors[z].getOccupiedSeats() > 0) {
-                System.out.println(z + (z > 9 ? "" : " ") + ".");
+                System.out.println("Z: " + z + (z > 9 ? "" : " ") + ".");
                 floors[z].print();
             }
         }
