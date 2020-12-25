@@ -50,6 +50,18 @@ public class ResultController {
     private AdventServiceEighteen adventServiceEighteen;
     @Autowired
     private AdventServiceNineteen adventServiceNineteen;
+    @Autowired
+    private AdventServiceTwenty adventServiceTwenty;
+    @Autowired
+    private AdventServiceTwentyOne adventServiceTwentyOne;
+    @Autowired
+    private AdventServiceTwentyTwo adventServiceTwentyTwo;
+    @Autowired
+    private AdventServiceTwentyThree adventServiceTwentyThree;
+    @Autowired
+    private AdventServiceTwentyFour adventServiceTwentyFour;
+    @Autowired
+    private AdventServiceTwentyFive adventServiceTwentyFive;
 
     @RequestMapping(value = "/1/reportRepair", method = RequestMethod.GET)
     @ResponseBody
@@ -315,5 +327,89 @@ public class ResultController {
     @ApiOperation("Part 2")
     public Integer monsterMessagesTwo() {
         return adventServiceNineteen.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "/20/jurassicJigsaw", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "The high-speed train leaves the forest and quickly carries you south. You can even see a desert in the distance! Since you have some spare time, you might as well see if there was anything interesting in the image the Mythical Information Bureau satellite captured. After decoding the satellite messages, you discover that the data actually contains many small images created by the satellite's camera array. The camera array consists of many cameras; rather than produce a single square image, they produce many smaller square image tiles that need to be reassembled back into a single image...")
+    public Long jurassicJigsaw() {
+        return adventServiceTwenty.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/20/monsterMessages/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Integer jurassicJigsawTwo() {
+        return adventServiceTwenty.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "/21/allergenAssessment", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "You reach the train's last stop and the closest you can get to your vacation island without getting wet. There aren't even any boats here, but nothing can stop you now: you build a raft. You just need a few days' worth of food for your journey. You don't speak the local language, so you can't read any ingredients lists. However, sometimes, allergens are listed in a language you do understand. You should be able to use this information to determine which ingredient contains which allergen and work out which foods are safe to take with you on your trip...")
+    public Integer allergenAssessment() {
+        return adventServiceTwentyOne.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/21/allergenAssessment/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Integer allergenAssessmentTwo() {
+        return adventServiceTwentyOne.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "/22/crabCombat", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "It only takes a few hours of sailing the ocean on a raft for boredom to sink in. Fortunately, you brought a small deck of space cards! You'd like to play a game of Combat, and there's even an opponent available: a small crab that climbed aboard your raft before you left. Fortunately, it doesn't take long to teach the crab the rules...")
+    public Integer crabCombat() {
+        return adventServiceTwentyTwo.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/22/crabCombat/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Integer crabCombatTwo() {
+        return adventServiceTwentyTwo.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "/23/crabCups", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "The small crab challenges you to a game! The crab is going to mix up some cups, and you have to predict where they'll end up...")
+    public Integer crabCups() {
+        return adventServiceTwentyThree.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/23/crabCups/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Integer crabCupsTwo() {
+        return adventServiceTwentyThree.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "/24/lobbyLayout", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "Your raft makes it to the tropical island; it turns out that the small crab was an excellent navigator. You make your way to the resort. As you enter the lobby, you discover a small problem: the floor is being renovated. You can't even reach the check-in desk until they've finished installing the new tile floor...")
+    public Integer lobbyLayout() {
+        return adventServiceTwentyFour.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/24/lobbyLayout/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Integer lobbyLayoutTwo() {
+        return adventServiceTwentyFour.getAdvent2Result();
+    }
+
+    @RequestMapping(value = "/25/comboBreaker", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "You finally reach the check-in desk. Unfortunately, their registration systems are currently offline, and they cannot check you in. Noticing the look on your face, they quickly add that tech support is already on the way! They even created all the room keys this morning; you can take yours now and give them your room deposit once the registration system comes back online. The room key is a small RFID card. Your room is on the 25th floor and the elevators are also temporarily out of service, so it takes what little energy you have left to even climb the stairs and navigate the halls. You finally reach the door to your room, swipe your card, and - beep - the light turns red. Examining the card more closely, you discover a phone number for tech support. \"Hello! How can we help you today?\" You explain the situation. \"Well, it sounds like the card isn't sending the right command to unlock the door. If you go back to the check-in desk, surely someone there can reset it for you.\" Still catching your breath, you describe the status of the elevator and the exact number of stairs you just had to climb. \"I see! Well, your only other option would be to reverse-engineer the cryptographic handshake the card does with the door and then inject your own commands into the data stream, but that's definitely impossible.\" You thank them for their time. Unfortunately for the door, you know a thing or two about cryptographic handshakes...")
+    public Integer comboBreaker() {
+        return adventServiceTwentyFive.getAdvent1Result();
+    }
+
+    @RequestMapping(value = "/25/comboBreaker/2", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation("Part 2")
+    public Integer comboBreakerTwo() {
+        return adventServiceTwentyFive.getAdvent2Result();
     }
 }
